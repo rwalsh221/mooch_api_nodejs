@@ -4,7 +4,7 @@ const dashboardController = require('../controllers/dashboardController');
 router.get('/', (request, response) => {
   console.log(dashboardController.test);
   response.json({
-    message: 'hello',
+    message: request.query.message,
   });
 });
 
