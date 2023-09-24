@@ -5,7 +5,8 @@ const athleteController = require('../controllers/athleteController');
 router.use(bodyParser.json());
 
 router
-  .get('/', athleteController.athlete)
+  .route('/')
+  .get(athleteController.athlete)
   .post(athleteController.athleteRegister);
 // .get(athleteController.athlete)
 // .post(athleteController.athleteRegister);

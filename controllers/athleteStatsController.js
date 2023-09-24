@@ -2,17 +2,17 @@ const fetch = require('node-fetch');
 
 exports.stats = async (req, res) => {
   try {
-    if (!req.query.uid) {
+    if (!req.query.userId) {
       throw new Error('athlete not found');
     }
 
-    const uid = req.query.uid;
+    const uid = req.query.userId;
 
     const athleteStatsReq = await fetch(
-      `${process.env.REACT_APP_MOOCH_API_URL}/athlete/stats?userId=${uid}`
+      `${process.env.PHP_MOOCH_API_URL}/athlete/stats?userId=${uid}`
     );
     const athleteStatsData = await athleteStatsReq.json();
-    res.json({ data: athleteStatsData });
+    res.status(200).json({ ...athleteStatsData });
   } catch (error) {
     console.log(error);
     res.status(400).json({ error, message: error.message });
@@ -21,14 +21,14 @@ exports.stats = async (req, res) => {
 
 exports.statsUpdate = async (req, res) => {
   try {
-    if (!req.query.uid) {
+    if (!req.query.userId) {
       throw new Error('athlete not found');
     }
 
-    const uid = req.query.uid;
+    const uid = req.query.userId;
 
     await fetch(
-      `${process.env.REACT_APP_MOOCH_API_URL}/athlete/stats/set?userId=${uid}`
+      `${process.env.PHP_MOOCH_API_URL}/athlete/stats/set?userId=${uid}`
     );
 
     res.status(200).send('update successfull');
