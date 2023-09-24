@@ -10,7 +10,7 @@ exports.athlete = async (req, res) => {
     const uid = req.query.uid;
 
     const athleteReq = await fetch(
-      `http://178.62.94.235/mooch/athlete/?userId=${uid}`
+      `${process.env.REACT_APP_MOOCH_API_URL}/athlete/?userId=${uid}`
     );
     const athleteData = await athleteReq.json();
     res.json({ data: athleteData });
@@ -26,11 +26,11 @@ exports.athleteRegister = async (req, res) => {
 
     let response = await axios({
       method: 'post',
-      url: `http://localhost/mooch_be_dev/test/noderegtest?${new URLSearchParams(
-        {
-          ...req.body,
-        }
-      )}`,
+      url: `${
+        process.env.REACT_APP_MOOCH_API_URL
+      }/test/noderegtest?${new URLSearchParams({
+        ...req.body,
+      })}`,
       body: payload,
       mode: 'cors',
       headers: {
