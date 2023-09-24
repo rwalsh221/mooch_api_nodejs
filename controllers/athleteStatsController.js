@@ -7,7 +7,7 @@ exports.stats = async (req, res) => {
     const uid = req.query.uid;
 
     const athleteStatsReq = await fetch(
-      `http://178.62.94.235/mooch/athlete/?userId=${uid}`
+      `http://178.62.94.235/mooch/athlete/stats?userId=${uid}`
     );
     const athleteStatsData = await athleteStatsReq.json();
     res.json({ data: athleteStatsData });
@@ -25,7 +25,7 @@ exports.statsUpdate = async (req, res) => {
 
     const uid = req.query.uid;
 
-    await fetch(`http://178.62.94.235/mooch/athlete/?userId=${uid}`);
+    await fetch(`http://178.62.94.235/mooch/athlete/stats/set?userId=${uid}`);
 
     res.status(200).send('update successfull');
   } catch (error) {
