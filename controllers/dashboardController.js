@@ -2,7 +2,7 @@ exports.test = async (request, response) => {
   console.log('LLALALALALLALALALALALA');
   try {
     const data = await fetch(
-      'http://localhost/mooch_be_dev/athlete/?userId=sH48pYkgACaDpnXJ2I06W2IE97c2'
+      `${process.env.REACT_APP_MOOCH_API_URL}/athlete/?userId=sH48pYkgACaDpnXJ2I06W2IE97c2`
     );
     const dataRes = await data.json();
 

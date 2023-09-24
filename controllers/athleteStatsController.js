@@ -1,3 +1,5 @@
+const fetch = require('node-fetch');
+
 exports.stats = async (req, res) => {
   try {
     if (!req.query.uid) {

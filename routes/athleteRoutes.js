@@ -4,10 +4,12 @@ const athleteController = require('../controllers/athleteController');
 
 router.use(bodyParser.json());
 
-router.get('/', athleteController.athlete);
+router
+  .get('/', athleteController.athlete)
+  .post(athleteController.athleteRegister);
 // .get(athleteController.athlete)
 // .post(athleteController.athleteRegister);
 
-router.post('/test', athleteController.test);
+// router.post('/test', athleteController.test);
 
 module.exports = router;

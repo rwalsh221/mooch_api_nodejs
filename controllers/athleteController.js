@@ -1,4 +1,4 @@
-const fetch2 = require('node-fetch');
+const fetch = require('node-fetch');
 const axios = require('axios');
 
 exports.athlete = async (req, res) => {
@@ -16,7 +16,7 @@ exports.athlete = async (req, res) => {
     res.json({ data: athleteData });
   } catch (error) {
     console.log(error);
-    res.json({ error, message: error.message });
+    res.status(400).json({ error, message: error.message });
   }
 };
 
