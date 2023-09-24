@@ -28,7 +28,7 @@ exports.athleteRegister = async (req, res) => {
       method: 'post',
       url: `${
         process.env.PHP_MOOCH_API_URL
-      }/athlete/register${new URLSearchParams({
+      }/athlete/register?${new URLSearchParams({
         ...req.body,
       })}`,
       body: payload,
