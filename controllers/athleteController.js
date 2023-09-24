@@ -2,7 +2,6 @@ const fetch = require('node-fetch');
 const axios = require('axios');
 
 exports.athlete = async (req, res) => {
-  console.log('hello athlete');
   try {
     if (!req.query.userId) {
       throw new Error('athlete not found');
